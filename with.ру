@@ -1,0 +1,26 @@
+class WordsFinder:
+    def __init__(self, *args):
+      self.file_names = list(args)
+
+  def get_all_words(self):
+     words_dict = {}
+
+  for file_name in self.file_names:
+    words = self._read_words_from_file(file_name)
+    words_dict[file_name] = words
+   return words_dict
+
+
+def _read_words_from_file(self, file_name):
+
+     try:
+ with open(file_name, 'r') as file:
+
+words = file.read().split()
+return words
+except FileNotFoundError:
+print(f"File '{file_name}' not found.")
+return []
+finder = WordsFinder('file1.txt', 'file2.txt', 'file3.txt')
+words_dict = finder.get_all_words()
+print(words_dict)
